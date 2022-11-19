@@ -16,10 +16,10 @@ function App() {
        {/*<Button type="primary">我们的按钮</Button>*/}
        {/* <UpCircleOutlined style={{fontSize:'40px',color:'red'}}></UpCircleOutlined>*/}
        {/* { 占位符合组件，类似窗口，用来展示组件，有点像 vue router-view }*/}
-        <Link to="/home">Home</Link>
+       {/* <Link to="/home">Home</Link>*/}
 
-        <Link to="/about">about</Link>
-         <Link to="/user">user</Link>
+       {/* <Link to="/about">about</Link>*/}
+       {/*  <Link to="/user">user</Link>*/}
         {outlet}
     </div>
   )
