@@ -31,7 +31,7 @@ function getItem(
 const items: MenuItem[] = [
   getItem('页面1', '/page1', <PieChartOutlined />),
   getItem('页面2', '/page2', <DesktopOutlined />),
-  getItem('小孩', 'sub1222', <UserOutlined />, [
+  getItem('小孩', 'sub1', <UserOutlined />, [
     getItem('Tom', '3222'),
     getItem('Bill', '4'),
     getItem('Alex', '5'),
@@ -47,14 +47,29 @@ const View: React.FC = () => {
     console.log("点击了菜单", e.key);
 
     //点击跳转对应路由 编程式导航跳转，利用一个hook
-    navigateTo(e.key)
+    navigateTo(e.key);
   }
+
+  const handleOpenChange = (keys:string[])=>{
+    // 点击 展开回收菜单，控制列表实现
+    console.log(keys)
+
+  }
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       {/*左边侧边栏*/}
       <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={menuClick}/>
+        <Menu
+            theme="dark"
+            defaultSelectedKeys={['page1']}
+            mode="inline"
+            items={items}
+            onClick={menuClick}
+            // 展开回收事件
+            onOpenChange={handleOpenChange}
+        />
       </Sider>
       {/*右边内容*/}
       <Layout className="site-layout">
